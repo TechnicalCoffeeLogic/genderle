@@ -40,6 +40,25 @@ header{
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.subtitle {
+    color: gainsboro;
+    font-size: 1rem;
+    font-weight: lighter;
+    margin: .4rem 0 .4rem 0;
+    text-align: left;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-underline-position: below;
+}
+
+#image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
 #board-container {
     display: flex;
     justify-content: center;
