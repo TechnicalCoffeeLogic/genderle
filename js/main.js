@@ -1,8 +1,4 @@
-document.addEventListener("DOMContentLoaded",()=>{
-
-    // start building the screen
-    createSquares();
-    
+document.addEventListener("DOMContentLoaded",()=>{   
     // global vars
     let guessedWords = [[]];
     let availableSpace = 1;
@@ -10,10 +6,15 @@ document.addEventListener("DOMContentLoaded",()=>{
     let guessedWordCount = 0;
     let currentGuessedWordsAr = 0;
     let gameOver = false;
+
     const keys = document.querySelectorAll(".keyboard-row button");
-    
+    const wordLength = 6
+    const numberOfTries = 6;
+
+    // start building the screen
+    createSquares();
     setImage();
-    
+
     // -------------------------------------------------------------------------------------------------------------------------------
     // purpose: gets the correct tile color based on if letter was correct only/not correct/ corract and in correct position of word
     // pass...: letter to check against, and index to check at in word
@@ -71,7 +72,7 @@ document.addEventListener("DOMContentLoaded",()=>{
       const currentWordArr = getCurrentWordArr();
 
       // fill in empty indexes with blanks
-      for (let i = currentWordArr.length; currentWordArr.length < 5; i++){
+      for (let i = currentWordArr.length; currentWordArr.length < wordLength; i++){
         currentWordArr[i] = " ";
         availableSpace = availableSpace + 1;
       }
@@ -82,7 +83,7 @@ document.addEventListener("DOMContentLoaded",()=>{
       // }
 
       const currentWord = currentWordArr.join("");
-      const firstLetterId = guessedWordCount * 5 + 1;
+      const firstLetterId = guessedWordCount * wordLength + 1;
       const interval = 200;
 
       currentWordArr.forEach((letter, index) => {
@@ -101,13 +102,13 @@ document.addEventListener("DOMContentLoaded",()=>{
       guessedWordCount += 1;
 
       if (currentWord === word){
-        window.alert("Congrats!");
+        alert('Congrats! You know what a man and woman are.', 'success')
         gameOver = true;
         return;
       }
 
-      if (guessedWords.length === 6) {
-        window.alert(`Moron, the word is ${word}`);
+      if (guessedWords.length === numberOfTries) {
+        alert(`The correct gender is ${word}. If you would like to understand why this is, check out the background section when you click the ? on the top right`, 'danger')      
         gameOver = true;
         return;
       }
@@ -140,7 +141,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
       const currentWordArr = getCurrentWordArr();
 
-      if (currentWordArr && currentWordArr.length < 5){
+      if (currentWordArr && currentWordArr.length < wordLength){
         currentWordArr.push(letter);
 
         const availableSpaceEl = document.getElementById(String(availableSpace));
@@ -148,6 +149,20 @@ document.addEventListener("DOMContentLoaded",()=>{
 
         availableSpaceEl.textContent = letter;
       }
+    }
+
+    // -------------------------------------------------------------------------------------------------------------------------------
+    // purpose: Show alert message
+    // pass...: message to display, type of alert
+    // return.: nothing
+    // -------------------------------------------------------------------------------------------------------------------------------    
+    function alert(message, type) {
+
+      let alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+      let wrapper = document.createElement('div')
+      wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+    
+      alertPlaceholder.append(wrapper)
     }
 
     // -------------------------------------------------------------------------------------------------------------------------------
@@ -159,13 +174,56 @@ document.addEventListener("DOMContentLoaded",()=>{
       const imgContainer = document.getElementById("image-container");
       const imageObject = [
         {
-          src: "images/man.png",
-          word: "man  "
-        }
+          src: "images/man1.jpg",
+          word: "male  "
+        },
+        {
+          src: "images/man2.jpg",
+          word: "male  "
+        },
+        {
+          src: "images/woman1.jpg",
+          word: "female"
+        },
+        {
+          src: "images/man3.jpg",
+          word: "male  "
+        },
+        {
+          src: "images/woman2.jpg",
+          word: "female"
+        },
+        {
+          src: "images/woman3.jpg",
+          word: "female"
+        },
+        {
+          src: "images/man4.jpg",
+          word: "male  "
+        },
+        {
+          src: "images/man5.jpg",
+          word: "male  "
+        },
+        {
+          src: "images/man6.jpg",
+          word: "male  "
+        },
+        {
+          src: "images/man7.jpg",
+          word: "male  "
+        },
+        {
+          src: "images/woman4.jpg",
+          word: "female"
+        },        
       ]
+
+      let newDate = new Date();
+      let picIndex = newDate.getDate() % 11;  
       let image = document.createElement("img");
-      image.src = imageObject[0].src;
-      word = imageObject[0].word;
+      image.src = imageObject[picIndex].src;
+      word = imageObject[picIndex].word;
       imgContainer.appendChild(image);
     }
 
@@ -177,7 +235,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     function createSquares() {
       const gameBoard = document.getElementById("board");
       
-      for (let index = 0; index < 30; index++){
+      for (let index = 0; index < (wordLength * numberOfTries); index++){
           let square =  document.createElement("div");
           square.classList.add("square");
           square.classList.add("animate__animated");
