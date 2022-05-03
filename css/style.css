@@ -141,3 +141,33 @@ img {
 .spacer-half{
     flex-grow: 1.5;
 }
+
+/* .modal-content {
+    background-color: rgb(19,21,25);
+    color: gainsboro;
+}
+
+.btn-close {
+    background-color: gainsboro;
+    color: white;
+}
+
+.modal-dialog {
+    border: grey;
+    border-style: solid;
+    border-width: thin;  
+}
+*/
+
+/* .modal-header {
+    justify-content: center;
+} 
+
+.modal-footer {
+    justify-content: center;
+}
+
+.btn-primar {
+    background-color: black;
+    border-color: black; 
+} */

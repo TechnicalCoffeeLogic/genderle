@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 
     <title>Genderle</title>
 
@@ -37,10 +42,9 @@
                     </div>
                     </li>             
                 </ul>
-                <div id="liveAlertPlaceholder"></div>
             </header>
 
-            <!-- Modal -->
+            <!-- menu Modal -->
             <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
@@ -104,6 +108,21 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- status modal -->
+            <div class="modal" tabindex="-1" id="statusModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" id="modalBody">
+                    <!-- this is where the alert is going -->                    
+                  </div>                  
+                </div>
+              </div>
             </div>
 
             <div id="image-container">

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     const keys = document.querySelectorAll(".keyboard-row button");
     const wordLength = 6
-    const numberOfTries = 6;
+    const numberOfTries = 5;
 
     // start building the screen
     createSquares();
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded",()=>{
       guessedWordCount += 1;
 
       if (currentWord === word){
-        alert('Congrats! You know what a man and woman are.', 'success')
+        alert('Congrats! You know what a man and a woman are.', 'success')
         gameOver = true;
         return;
       }
@@ -158,11 +158,25 @@ document.addEventListener("DOMContentLoaded",()=>{
     // -------------------------------------------------------------------------------------------------------------------------------    
     function alert(message, type) {
 
-      let alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-      let wrapper = document.createElement('div')
-      wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
-    
+      var alertPlaceholder = document.getElementById('modalBody')
+      var wrapper = document.createElement('div')      
+      wrapper.innerHTML = '<div class="alert alert-' + type + ' role="alert">' + message + '</div>'
       alertPlaceholder.append(wrapper)
+
+      var modalTitle = document.getElementById('modalTitle');
+      if (type === 'success'){
+        modalTitle.innerText = 'Success';
+      }
+      else {
+        modalTitle.innerText = 'Failed';
+      }
+
+
+      var options = {backdrop: true, keyboard: false, focus: true};
+      var myModal = new bootstrap.Modal(document.getElementById('statusModal'), options)
+
+      myModal.show();
+      console.log(myModal);
     }
 
     // -------------------------------------------------------------------------------------------------------------------------------
@@ -171,6 +185,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     // return.: nothing
     // -------------------------------------------------------------------------------------------------------------------------------
     function setImage() {
+      const numberOfPics = 11;
       const imgContainer = document.getElementById("image-container");
       const imageObject = [
         {
@@ -220,7 +235,7 @@ document.addEventListener("DOMContentLoaded",()=>{
       ]
 
       let newDate = new Date();
-      let picIndex = newDate.getDate() % 11;  
+      let picIndex = newDate.getDate() % numberOfPics;  
       let image = document.createElement("img");
       image.src = imageObject[picIndex].src;
       word = imageObject[picIndex].word;
