@@ -37,22 +37,17 @@ header{
 .title {
     color: gainsboro;
     font-size: 2.5rem;
-    /* font-weight: bold; */
+    font-weight: bold;
     margin: .4rem 0 .4rem 0;
     text-align: center;
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .nav {
     align-items: center;
     justify-content: center;
 }
-
-/* #menu {
-    display: flex;
-    margin: .4rem;
-} */
 
 #help-icon {
     color: gainsboro;
@@ -142,32 +137,13 @@ img {
     flex-grow: 1.5;
 }
 
-/* .modal-content {
-    background-color: rgb(19,21,25);
-    color: gainsboro;
+#contact-nav {
+    font-size: 2rem;
+    justify-content: left;
+    margin-bottom: 1rem;
 }
 
-.btn-close {
-    background-color: gainsboro;
-    color: white;
+.nav-item {
+    display: flex;
+    margin-right: 1rem
 }
-
-.modal-dialog {
-    border: grey;
-    border-style: solid;
-    border-width: thin;  
-}
-*/
-
-/* .modal-header {
-    justify-content: center;
-} 
-
-.modal-footer {
-    justify-content: center;
-}
-
-.btn-primar {
-    background-color: black;
-    border-color: black; 
-} */

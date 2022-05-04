@@ -1,19 +1,20 @@
 document.addEventListener("DOMContentLoaded",()=>{   
     // global vars
-    let guessedWords = [[]];
-    let availableSpace = 1;
-    let word;
-    let guessedWordCount = 0;
-    let currentGuessedWordsAr = 0;
-    let gameOver = false;
+    var guessedWords = [[]];
+    var availableSpace = 1;
+    var word;
+    var guessedWordCount = 0;
+    var currentGuessedWordsAr = 0;
+    var gameOver = false;
+    var tmpWord;
 
     const keys = document.querySelectorAll(".keyboard-row button");
     const wordLength = 6
     const numberOfTries = 5;
 
     // start building the screen
-    createSquares();
     setImage();
+    createSquares();
 
     // -------------------------------------------------------------------------------------------------------------------------------
     // purpose: gets the correct tile color based on if letter was correct only/not correct/ corract and in correct position of word
@@ -22,11 +23,15 @@ document.addEventListener("DOMContentLoaded",()=>{
     // -------------------------------------------------------------------------------------------------------------------------------
     function getTileColor(letter, index) {
       
-      const isCorrectLetter = word.includes(letter);
+      //const isCorrectLetter = word.includes(letter);
+      const isCorrectLetter = tmpWord.includes(letter);
+
       if (!isCorrectLetter) {
         return "rgb(58, 58, 60)"
       }
-
+            
+      tmpWord = tmpWord.replace(letter,'');
+      
       const letterInThatPosition = word.charAt(index);
       const isCorrectPosition = letter === letterInThatPosition;
 
@@ -69,34 +74,33 @@ document.addEventListener("DOMContentLoaded",()=>{
         return;
       }
 
-      const currentWordArr = getCurrentWordArr();
+      //const currentWordArr = getCurrentWordArr();
+      var currentWordArr = getCurrentWordArr();
+      tmpWord = word;
 
       // fill in empty indexes with blanks
       for (let i = currentWordArr.length; currentWordArr.length < wordLength; i++){
         currentWordArr[i] = " ";
         availableSpace = availableSpace + 1;
       }
-
-      // if (currentWordArr.length !== 5){
-      //   window.alert("Word must be 5 letters");
-      //   return;
-      // }
-
+      
+      var tileIndexToCheck = currentWordArr.length - 1;
       const currentWord = currentWordArr.join("");
-      const firstLetterId = guessedWordCount * wordLength + 1;
-      const interval = 200;
+      const firstLetterId = guessedWordCount * wordLength + 1;      
+      var interval = 2 * tileIndexToCheck;
 
+      // reverse array to due the possibility of blank spaces in word.. i.e. male
+      currentWordArr = currentWordArr.reverse();
       currentWordArr.forEach((letter, index) => {
         setTimeout(() => {
-
-          const tileColor = getTileColor(letter, index);         
-          const letterId = firstLetterId + index;
+          const tileColor = getTileColor(letter, tileIndexToCheck);                   
+          const letterId = firstLetterId + tileIndexToCheck;
           const letterEl = document.getElementById(letterId);
 
           letterEl.classList.add("animate__flipInX");
           letterEl.style = `background-color:${tileColor};border-color:${tileColor}`;
-
-        }, interval * index);
+          tileIndexToCheck -= 1;                  
+        }, 1);
       });
 
       guessedWordCount += 1;
@@ -185,7 +189,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     // return.: nothing
     // -------------------------------------------------------------------------------------------------------------------------------
     function setImage() {
-      const numberOfPics = 11;
+      const numberOfPics = 12;
       const imgContainer = document.getElementById("image-container");
       const imageObject = [
         {
@@ -231,14 +235,20 @@ document.addEventListener("DOMContentLoaded",()=>{
         {
           src: "images/woman4.jpg",
           word: "female"
-        },        
+        },       
+        {
+          src: "<a id='f4u8uqKeQsxniraWgFrbsg' class='gie-single' href='http://www.gettyimages.com/detail/1311555606' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'f4u8uqKeQsxniraWgFrbsg',sig:'ZB9uu-7Qad5N4uObjorweKSUoCCB7okP6nxGejJ_Kp4=',w:'594px',h:'334px',items:'1311555606',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>",
+          word: "female"
+        } 
       ]
 
       let newDate = new Date();
       let picIndex = newDate.getDate() % numberOfPics;  
       let image = document.createElement("img");
       image.src = imageObject[picIndex].src;
+      image.className = 'class="img-thumbnail"';
       word = imageObject[picIndex].word;
+      tmpWord = word;
       imgContainer.appendChild(image);
     }
 
