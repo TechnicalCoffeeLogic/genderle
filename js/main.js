@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     // return.: nothing
     // -------------------------------------------------------------------------------------------------------------------------------
     function setImage() {
-      const numberOfPics = 12;
+      const numberOfPics = 11;
       const imgContainer = document.getElementById("image-container");
       const imageObject = [
         {
@@ -235,11 +235,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         {
           src: "images/woman4.jpg",
           word: "female"
-        },       
-        {
-          src: "<a id='f4u8uqKeQsxniraWgFrbsg' class='gie-single' href='http://www.gettyimages.com/detail/1311555606' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'f4u8uqKeQsxniraWgFrbsg',sig:'ZB9uu-7Qad5N4uObjorweKSUoCCB7okP6nxGejJ_Kp4=',w:'594px',h:'334px',items:'1311555606',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>",
-          word: "female"
-        } 
+        }
       ]
 
       let newDate = new Date();
