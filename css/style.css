@@ -62,12 +62,15 @@ header{
     align-items: center;
     flex-grow: 1;
     overflow: hidden;
-    margin: .4rem;
 }
 
 img {
     max-width: 200px;
     max-height: 150px;
+}
+
+ul {
+    list-style: none;
 }
 
 #board-container {
@@ -139,6 +142,12 @@ img {
 
 #contact-nav {
     font-size: 2rem;
+    justify-content: left;
+    margin-bottom: 1rem;
+}
+
+#contact-nav-coffee {
+    font-size: 1rem;
     justify-content: left;
     margin-bottom: 1rem;
 }

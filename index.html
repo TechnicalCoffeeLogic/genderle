@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css" />
 
+    <!-- <script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'jIY9yjU6SFR0K38Kqalvew',sig:'FY2K9L8oUrp4RyML-rnjuSQ0eTsvVyyBbLAj0EKJK0w=',w:'594px',h:'451px',items:'1231376210',caption: true ,tld:'com',is360: false })});</script><script src='https://embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`, -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
@@ -63,7 +65,19 @@
                                   </h2>
                                   <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionHelp">
                                     <div class="accordion-body">
-                                      <strong>How To Play:</strong> Determine the correct gender of the person in the picture that is presented to you. You will get six tries to figure out the correct gender, your guess can have blank spaces in them, that means you do not have to fill out the entire 6 squares.
+                                      <strong>How To Play:</strong> Determine the correct gender of the person in the picture that is presented to you. You will get five tries to figure out the correct gender, your guess can have blank spaces in them, that means you do not have to fill out the entire 6 squares. <br/><br/>
+                                      <ul>
+                                        <li>
+                                          <i class="bi bi-square-fill" style="color:rgb(83,141, 78);"></i> A green square means you have the correct letter in the correct position.
+                                        </li>
+                                        <li>
+                                          <i class="bi bi-square-fill" style="color:rgb(181, 159, 59);"></i> A yellow square means you have the correct letter, but in the wrong postition of the word.
+                                        </li>
+                                        <li>
+                                          <i class="bi bi-square-fill" style="color:rgb(58, 58, 60);"></i> A gray sqaure means that the letter does not exist in the answer.
+                                        </li>
+                                      </ul>
+
                                     </div>
                                   </div>
                                 </div>
@@ -75,7 +89,11 @@
                                   </h2>
                                   <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionHelp">
                                     <div class="accordion-body">
-                                      <strong>What is my standard?</strong> 
+                                      <strong>What is my standard?</strong> <br/>
+                                      I assume since you got the wrong answer you are wondering, “Who the heck gave you the authority to decide who is a man and who is a woman?” Well, no one gave me the authority; I am simply proclaiming the truth.<br/><br/>
+                                      [Jesus] who comes from above is above all. He who is of the earth belongs to the earth and speaks in an earthly way. [Jesus], who comes from heaven is above all. He bears witness to what he has seen and heard, yet no one receives his testimony…The Father loves the Son and has given all things into his hand. Whoever believes in the Son has eternal life; whoever does not obey the Son shall not see life, but the wrath of God remains on him.  (John 3:31-36)<br/><br/>
+                                      Jesus, the Son of God, who has arisen from the dead, and who has been given all authority in heaven and on earth (Matthew 28:18), has the authority to say who is a woman and who is a man, and that there are only two genders. <br/><br/>
+                                      You can attempt to do your own thing, but you are His creation. You can say “there is no God”, but you are wrong. My suggestion is to submit to the Son of God, who is the true King, and follow Him.<br/><br/>
                                     </div>
                                   </div>
                                 </div>
@@ -99,7 +117,14 @@
                                                 </a>
                                             </li>
                                           </ul>
-                                        <p>Powered by TechnicalCoffeeLogic</p>
+                                          <ul class="nav">
+                                            <li class="nav-item">
+                                              <p>Powered by Technical Coffee Logic</p> 
+                                            </li>
+                                            <li class="nav-item">
+                                              <i class="bi bi-cup" id="contact-nav-coffee"></i>
+                                            </li>
+                                          </ul>
                                    </div>
                                   </div>
                                 </div>
@@ -109,6 +134,32 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- how to play modal -->
+            <div class="modal" tabindex="-1" id="howToModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body" id="howToModalBody">
+                    <strong>How To Play:</strong> Determine the correct gender of the person in the picture that is presented to you. You will get six tries to figure out the correct gender, your guess can have blank spaces in them, that means you do not have to fill out the entire 6 squares. <br/><br/>
+                    <ul>
+                      <li>
+                        <i class="bi bi-square-fill" style="color:rgb(83,141, 78);"></i> A green square means you have the correct letter in the correct position.
+                      </li>
+                      <li>
+                        <i class="bi bi-square-fill" style="color:rgb(181, 159, 59);"></i> A yellow square means you have the correct letter, but in the wrong postition of the word.
+                      </li>
+                      <li>
+                        <i class="bi bi-square-fill" style="color:rgb(58, 58, 60);"></i> A gray sqaure means that the letter does not exist in the answer.
+                      </li>
+                    </ul>>                    
+                  </div>                  
+                </div>
+              </div>
             </div>
 
             <!-- status modal -->
@@ -126,7 +177,7 @@
               </div>
             </div>
 
-            <div id="image-container">
+            <div id="image-container">              
             </div>
 
             <div id="board-container">

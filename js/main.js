@@ -243,9 +243,10 @@ document.addEventListener("DOMContentLoaded",()=>{
       let image = document.createElement("img");
       image.src = imageObject[picIndex].src;
       image.className = 'class="img-thumbnail"';
-      word = imageObject[picIndex].word;
       tmpWord = word;
+      word = imageObject[picIndex].word;
       imgContainer.appendChild(image);
+      //imgContainer.innerHTML = imageObject[picIndex].src;
     }
 
     // -------------------------------------------------------------------------------------------------------------------------------
