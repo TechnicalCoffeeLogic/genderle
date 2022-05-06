@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     // start building the screen
     setImage();
     createSquares();
+    showHowToPlay();
 
     // -------------------------------------------------------------------------------------------------------------------------------
     // purpose: gets the correct tile color based on if letter was correct only/not correct/ corract and in correct position of word
@@ -177,10 +178,23 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
       var options = {backdrop: true, keyboard: false, focus: true};
-      var myModal = new bootstrap.Modal(document.getElementById('statusModal'), options)
+      var myModal = new bootstrap.Modal(document.getElementById('statusModal'), options);
 
       myModal.show();
       console.log(myModal);
+    }
+
+    // -------------------------------------------------------------------------------------------------------------------------------
+    // purpose: shows user the 'how to play modal' when they visit the website
+    // pass...: nothing
+    // return.: nothing
+    // -------------------------------------------------------------------------------------------------------------------------------
+    function showHowToPlay() {
+
+      var options = {backdrop: true, keyboard: false, focus: true};
+      var myModal = new bootstrap.Modal(document.getElementById('howToModal'), options);
+      myModal.show();
+
     }
 
     // -------------------------------------------------------------------------------------------------------------------------------
