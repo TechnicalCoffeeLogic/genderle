@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded",()=>{
       }
 
       if (guessedWords.length === numberOfTries) {
-        alert(`The correct gender is ${word}. If you would like to understand why this is, check out the background section when you click the ? to the right of the "GENDERLE" title`, 'danger')      
+        alert(`The correct gender is ${word}. If you would like to understand why this is, check out the background section when you click the blue "?" to the right of the "GENDERLE" title.`, 'danger')      
         gameOver = true;
         return;
       }
