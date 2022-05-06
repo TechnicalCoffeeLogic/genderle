@@ -107,13 +107,13 @@ document.addEventListener("DOMContentLoaded",()=>{
       guessedWordCount += 1;
 
       if (currentWord === word){
-        alert('Congrats! You know what a man and a woman are.', 'success')
+        alert('Congrats! You know the difference between a man and a woman.', 'success')
         gameOver = true;
         return;
       }
 
       if (guessedWords.length === numberOfTries) {
-        alert(`The correct gender is ${word}. If you would like to understand why this is, check out the background section when you click the ? on the top right`, 'danger')      
+        alert(`The correct gender is ${word}. If you would like to understand why this is, check out the background section when you click the ? to the right of the "GENDERLE" title`, 'danger')      
         gameOver = true;
         return;
       }
@@ -168,14 +168,13 @@ document.addEventListener("DOMContentLoaded",()=>{
       wrapper.innerHTML = '<div class="alert alert-' + type + ' role="alert">' + message + '</div>'
       alertPlaceholder.append(wrapper)
 
-      var modalTitle = document.getElementById('modalTitle');
+      var modalTitle = document.getElementById('modalStatusTitle');
       if (type === 'success'){
         modalTitle.innerText = 'Success';
       }
       else {
         modalTitle.innerText = 'Failed';
       }
-
 
       var options = {backdrop: true, keyboard: false, focus: true};
       var myModal = new bootstrap.Modal(document.getElementById('statusModal'), options);
