@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     // return.: nothing
     // -------------------------------------------------------------------------------------------------------------------------------
     function setImage() {
-      const numberOfPics = 11;
+      const numberOfPics = 12;
       const imgContainer = document.getElementById("image-container");
       const imageObject = [
         {
@@ -249,6 +249,10 @@ document.addEventListener("DOMContentLoaded",()=>{
         {
           src: "images/woman4.jpg",
           word: "female"
+        },
+        {
+          src:"images/woman5.jpg",
+          word:"female"
         }
       ]
 
